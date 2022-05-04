@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TarjetaController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,3 +34,14 @@ Route::middleware([
 /* Route::get('/home/{tarjeta}', [TarjetaController::class, 'show'])->name('tarjetas.show');
  */
 Route::resource('tarjetas', TarjetaController::class)->names('tarjetas');
+
+/* Route::get('/artisan/cache', function(){
+    Artisan::call('config:cache');
+    return redirect('/');
+});
+
+Route::get('/artisan/cache', function(){
+    Artisan::call('migrate:fresh --seed');
+    return redirect('/');
+}); */
+
