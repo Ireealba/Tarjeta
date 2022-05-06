@@ -78,9 +78,10 @@ class TarjetaController extends Controller
     }
 
     public function destroy(Tarjeta $tarjeta){
+
         $tarjeta->delete();
 
-        return redirect()->route('tarjetas.index')->with('info', 'Los datos han sido eliminados con éxito.');
+        return redirect()->route('tarjetas.index')->with('eliminar', 'ok');
     }
 
 }
