@@ -30,7 +30,7 @@
                                 <form action="{{route('tarjetas.destroy', $tarjeta)}}" method="post" class="formulario-eliminar">
                                     @csrf
                                     @method('delete')                                    
-                                    <button type="submit" class="eliminar">Eliminar</button>
+                                    <button type="submit" onclick="return confirm('Eliminar la tarjeta?')" class="eliminar">Eliminar</button>
                                 </form>
                             </td>
                         </tr>
@@ -39,7 +39,48 @@
             </table>
         </div>
     </div>
+    
+    {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    @if (session('eliminar') == 'ok')
+        <script>
+            Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                    )
+        </script>
+        
+    @endif 
+    
+    <script type="text/javascript">
+        
+        /* formulario.getElementByClassName("formulario-eliminar").addEventListener("click", function(event){
+          event.preventDefault()
+        }); */
+                
+         $('.formulario-eliminar').submit(function(e){
+                e.preventDefault();
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                    this.submit();  
+                    }
+                    })
+            });
+        
+        
+        
+    </script>   --}}
+    
     <style>
         tr:nth-child(odd){
             background-color: rgb(218, 218, 218);
@@ -109,72 +150,6 @@
         }
 
     </style>
-    
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    @if (session('eliminar') == 'ok')
-        <script>
-            Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                    )
-        </script>
-        
-    @endif
-    
-    <script>
-        $('.formulario-eliminar').submit(function(e){
-            e.preventDefault();
-
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                  this.submit();  
-                }
-                })
-        });
-        
-    </script>
-
-        {{-- @if (session('eliminar') == 'ok')
-            <script>
-                if (result.value){
-                            Swal.fire('Deleted!',
-                                'Your file has been deleted.',
-                                'successs'
-                            )
-                        }
-            </script>
-        @endif
-        <script>
-
-            $('.eliminar').submit(function(e){
-                e.preventDefault();
-                Swal.fire({
-                    title:'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!',
-                }).then((result)=> {
-                        
-
-                        this.submit();
-                    })
-                });
-            
-        
-    </script> --}}
     
 </x-app-layout>
 
