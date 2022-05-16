@@ -29,11 +29,18 @@ class TarjetaController extends Controller
         
         $tarjeta = Tarjeta::create($request->all());
         
-        if($request->file('file')){
-            $url = Storage::put('imgtarjetas', $request->file('file'));
+        /* if($request->file('file')){
+            $url = $request->file('file')->store('imgtarjetas');
 
             $tarjeta->image()->create([
                 'url'=> $url
+            ]);
+        } */
+
+        if($request->file('file')){
+            $url = Storage::put('imgtarjetas', $request->file('file'));
+            $tarjeta->image()->create([
+                'url' => $url
             ]);
         }
 
@@ -58,12 +65,13 @@ class TarjetaController extends Controller
         $tarjeta->update($request->all());
 
         if($request->file('file')){
-            $url = Storage::put('public/imgtarjetas', $request->file('file'));
+             
+            $url = $request->file('file')->store('imgtarjetas');
 
             if($tarjeta->image){
                 Storage::delete($tarjeta->image->url);
 
-                $tarjeta->image->update([
+                $tarjeta->image()->update([
                     'url' => $url
                 ]);
             }
@@ -75,6 +83,7 @@ class TarjetaController extends Controller
         }
 
         return redirect()->route('tarjetas.edit', $tarjeta)->with('info', 'Los datos se actualizaron con éxito.');
+    
     }
 
     public function destroy(Tarjeta $tarjeta){
@@ -85,3 +94,4 @@ class TarjetaController extends Controller
     }
 
 }
+
