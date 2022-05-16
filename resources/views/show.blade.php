@@ -46,7 +46,7 @@
             </tr>
             <tr>                
                     <td> 
-                        <img class="socialnetwork" src="http://assets.stickpng.com/images/5a4525f5546ddca7e1fcbc86.png" alt="">               
+                        <img class="socialnetwork" src="{{asset('storage/iconos/telephone.png')}}" alt="">               
                         {{$tarjeta->tlf1}} {{-- tlf 1 --}}                    
                     </td>
             </tr>
@@ -54,7 +54,7 @@
             @if ($tarjeta->tlf2 != null)
                 <tr>
                     <td>             
-                        <img src="http://assets.stickpng.com/images/5a4525f5546ddca7e1fcbc86.png" alt="" class="socialnetwork">           
+                        <img src="{{asset('storage/iconos/telephone.png')}}" alt="" class="socialnetwork">           
                         {{$tarjeta->tlf2}} {{-- tlf 2 --}}                        
                     </td>
                 </tr>
@@ -64,7 +64,7 @@
             @if ($tarjeta->tlf3 != null)
                 <tr>
                     <td>
-                        <img src="http://assets.stickpng.com/images/5a4525f5546ddca7e1fcbc86.png" alt="" class="socialnetwork">
+                        <img src="{{asset('storage/iconos/telephone.png')}}" alt="" class="socialnetwork">
                         {{$tarjeta->tlf3}} {{-- tlf 3 --}}
                     </td>
                 </tr>                
@@ -72,7 +72,7 @@
 
             <tr>                
                     <td>
-                        <img src="http://assets.stickpng.com/images/58485698e0bb315b0f7675a8.png" alt="" class="socialnetwork">                
+                        <img src="{{asset('storage/iconos/mail.png')}}" alt="" class="socialnetwork">                
                         {{$tarjeta->email1}} {{-- telefono 1 --}}
                     </td>
             </tr>
@@ -80,7 +80,7 @@
             @if ($tarjeta->email2 != null)
                 <tr>                    
                         <td>  
-                            <img src="http://assets.stickpng.com/images/58485698e0bb315b0f7675a8.png" alt="" class="socialnetwork">                  
+                            <img src="{{asset('storage/iconos/mail.png')}}" alt="" class="socialnetwork">                  
                             {{$tarjeta->email2}} {{-- telefono 2 --}}                       
                         </td>
                 </tr>
@@ -89,7 +89,7 @@
             @if ($tarjeta->email3 != null)
                 <tr>
                         <td>
-                            <img src="http://assets.stickpng.com/images/58485698e0bb315b0f7675a8.png" alt="" class="socialnetwork">                                                                
+                            <img src="{{asset('storage/iconos/mail.png')}}" alt="" class="socialnetwork">                                                                
                             {{$tarjeta->email3}} {{-- telefono 3 --}}                        
                         </td>
                 </tr>
@@ -98,7 +98,7 @@
             @if ($tarjeta->location != null || $tarjeta->cod_postal != null || $tarjeta->local != null || $tarjeta->nacional != null)
                 <tr>
                         <td>
-                            <img src="https://cdn-icons-png.flaticon.com/512/535/535188.png" alt="" class="socialnetwork">                    
+                            <img src="{{asset('storage/iconos/location.png')}}" alt="" class="socialnetwork">                    
                     @if ($tarjeta->location != null)
                             {{$tarjeta->location}} {{-- calle --}}
                     @endif
@@ -124,7 +124,7 @@
             @if ($tarjeta->social1 != null)
                 <tr>
                         <td>                    
-                            <img class="socialnetwork" src="https://forcaem.com/wp-content/uploads/2016/05/instagram-png-instagram-png-logo-1455.png" alt=""> @ {{$tarjeta->social1}} {{-- instagram --}}
+                            <img class="socialnetwork" src="{{asset('storage/iconos/instagram.png')}}" alt=""> @ {{$tarjeta->social1}} {{-- instagram --}}
                         </td> 
                 </tr>
             @endif
@@ -132,7 +132,7 @@
             @if ($tarjeta->social2 != null)
                 <tr>
                         <td>                    
-                            <img class="socialnetwork" src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-4.png" alt=""> @ {{$tarjeta->social2}} {{-- twitter --}}
+                            <img class="socialnetwork" src="{{asset('storage/iconos/twitter.png')}}" alt=""> @ {{$tarjeta->social2}} {{-- twitter --}}
                         </td>
                 </tr>
             @endif
@@ -140,7 +140,7 @@
             @if ($tarjeta->social3 != null)
                 <tr>
                         <td>
-                            <img class="socialnetwork" src="https://media.infojobs.net/appgrade/icons/ico-ij-ios.png" alt=""> @ {{$tarjeta->social3}} {{-- infojobs --}}                            
+                            <img class="socialnetwork" src="{{asset('storage/iconos/ijobs.png')}}" alt=""> @ {{$tarjeta->social3}} {{-- infojobs --}}                            
                         </td>
                 </tr>
             @endif
@@ -148,7 +148,7 @@
             @if ($tarjeta->website1 != null)
                 <tr>
                         <td>
-                            <img src="https://cdn-icons-png.flaticon.com/512/93/93618.png" alt="" class="socialnetwork">
+                            <img src="{{asset('storage/iconos/web.png')}}" alt="" class="socialnetwork">
                             {{$tarjeta->website1}} {{-- web 1 --}}
                         </td> 
                 </tr>
@@ -157,7 +157,7 @@
             @if ($tarjeta->website2 != null)
                 <tr>
                         <td>
-                            <img src="https://cdn-icons-png.flaticon.com/512/93/93618.png" alt="" class="socialnetwork">
+                            <img src="{{asset('storage/iconos/web.png')}}" alt="" class="socialnetwork">
                             {{$tarjeta->website2}} {{-- web 2 --}}
                         </td>
                     </tr>                
@@ -166,7 +166,7 @@
             @if ($tarjeta->website3 != null)
                 <tr>
                     <td>
-                        <img src="https://cdn-icons-png.flaticon.com/512/93/93618.png" alt="" class="socialnetwork">
+                        <img src="{{asset('storage/iconos/web.png')}}" alt="" class="socialnetwork">
                         {{$tarjeta->website3}} {{-- web 3 --}}    
                     </td>
                 </tr>
