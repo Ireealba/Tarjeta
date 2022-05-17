@@ -224,7 +224,7 @@
             position: relative; 
             padding-bottom: 5%;
             padding-top: 5%;
-            margin-left: 400px;
+            padding-left: 40%;
         }
 
         .image-wrapper img{
