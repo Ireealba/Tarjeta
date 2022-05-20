@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Tajetas contacto')
+@section('title', 'Tarjetas contacto')
 
 @section('content_header')
     <h1>Lista de usuarios</h1>

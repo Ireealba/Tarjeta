@@ -40,12 +40,6 @@
                         {{ __('Olvidé mi contraseña') }}
                     </a>
                 @endif  
-                
-                <x-jet-button class="ml-4">
-                    <a href="{{ route('register') }}">
-                        {{__('Registrarse')}}
-                    </a> 
-                </x-jet-button>
 
                 <x-jet-button class="ml-4">
                     {{ __('Iniciar sesión') }}
