@@ -31,13 +31,8 @@
 
                 <div class="form-group">
                     {!! Form::label('password', 'Contraseña:') !!}
-                    {!! Form::text('password', null, ['class' => 'form-control']) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('confirm_password', 'Confirma la contraseña:') !!}
-                    {!! Form::password('confirm_password', null, ['class' => 'form-control']) !!}
-                </div>
+                    {!! Form::password('password', null, ['class' => 'form-control']) !!}
+                </div>            
 
                 @error('password')
                     <span class="text-danger">{{$message}}</span>
