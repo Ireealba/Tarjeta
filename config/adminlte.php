@@ -256,12 +256,8 @@ return [
             'text' => 'Usuarios',
             'route'  => 'admin.users.index',
             'icon' => 'fas fa-fw fa-users',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+            'active' => ['admin/users*']
+        ],        
         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
