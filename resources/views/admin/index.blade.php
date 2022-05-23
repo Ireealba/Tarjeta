@@ -7,7 +7,9 @@
 @stop 
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p>Aquí podrás utilizar las opciones de administrador</p>
+    <br>
+    como crear usuarios o modificar sus roles.
 @stop
 
 @section('css')
