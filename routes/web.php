@@ -35,6 +35,8 @@ Route::middleware([
  */
 Route::resource('tarjetas', TarjetaController::class)->names('tarjetas');
 
+Route::resource('users', 'UsersController');
+
 /* Route::get('/artisan/cache', function(){
     Artisan::call('config:cache');
     return redirect('/');

@@ -8,12 +8,17 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\Role;
 
 class TarjetaController extends Controller
 {
     public function index(){
         $tarjetas = Tarjeta::all();
-        return view('tarjetas.index', compact('tarjetas'));
+        if(Auth::check()){
+            if(Auth::user()->card_number == )
+        }
+        
+        return view('tarjetas.index', compact('tarjetas', 'id'));
     }    
 
     public function create(){     

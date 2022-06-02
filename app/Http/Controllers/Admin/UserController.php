@@ -9,12 +9,20 @@ use App\Models\User;
 use Laravel\Jetstream\Jetstream;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
 
 
 
 class UserController extends Controller
 {
     use PasswordValidationRules;
+
+    public function __construct()
+    {
+        $this->middleware('can:admin.users.index')->only('index');
+        $this->middleware('can:admin.users.edit')->only('edit', 'update', 'destroy');
+        $this->middleware('can:admin.users.create')->only('create');
+    }
 
     /**
      * Display a listing of the resource.
@@ -107,7 +115,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.users.edit', compact('user'));
+
+        $roles = Role::all();
+
+        return view('admin.users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -130,6 +141,8 @@ class UserController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
+
+        $user->roles()->sync($request->roles);
 
     return redirect()->route('admin.users.edit', $user)->with('info', 'usuario actualizado con éxito'); 
     }

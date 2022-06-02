@@ -232,22 +232,40 @@ return [
         
         
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text'        => 'blog',
+            'url'         => 'admin/blog',
+            'can'         => 'manage-blog',
         ],
         [
             'text'        => 'Dashboard',
-            'route'         => 'admin.home',
+            'route'       => 'admin.home',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
+            'can'         => 'admin.home'
         ],
-        ['header' => 'ADMINISTRADOR'],
         [
-            'text' => 'Usuarios',
-            'route'  => 'admin.users.index',
-            'icon' => 'fas fa-fw fa-users',
-            'active' => ['admin/users*']
-        ],                
+            'text'        => 'Usuarios',
+            'route'       => 'admin.users.index',
+            'icon'        => 'fas fa-users fa-fw',
+            'active'      => ['admin/users*'],
+            'can'         => 'admin.users.index'
+        ],
+        [
+            'text'        => 'Planes',
+            'route'       => 'admin.roles.index',
+            'icon'        => 'fas fa-users-cog fa-fw',
+            'active'      => ['admin/roles*']
+        ],
+        [
+            'text'        => 'Crear nuevo usuario',
+            'route'       => 'admin.users.create',
+            'icon'        => 'fas fa-user fa-fw',
+            'can'         => 'admin.users.create'
+        ],
+        [
+            'text'        => 'Crear nuevo plan',
+            'route'       => 'admin.roles.create',
+            'icon'        => 'fas fa-user-cog fa-fw'
+        ]               
     ],
 
     /*

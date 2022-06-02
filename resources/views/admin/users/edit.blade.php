@@ -44,6 +44,17 @@
             @error('password')
                 <span class="text-danger">{{$message}}</span>
             @enderror
+            <h2 class="h5">Listado de roles</h2>
+            @foreach ($roles as $role)
+                
+                <div>
+                    <label>
+                        {!! Form::checkbox('roles[]', $role->id, null, ['class' => 'mr-1']) !!}
+                        {{$role->name}}
+                    </label>
+                </div>
+
+            @endforeach
 
             {!! Form::submit('Actualizar usuario', ['class' => 'btn btn-primary']) !!}
 

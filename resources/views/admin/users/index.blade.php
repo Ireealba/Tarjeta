@@ -7,7 +7,10 @@
 @stop 
 
 @section('content')
-    <div class="card">
+
+    @livewire('admin.users-index')
+
+    {{-- <div class="card">
         <div class="card-header">
             <a href="{{route('admin.users.create')}}" class="btn btn-secondary">Crear nuevo usuario</a>
         </div>
@@ -41,6 +44,6 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> --}}
 @stop
 

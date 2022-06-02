@@ -6,7 +6,7 @@ use App\Models\Image;
 use App\Models\Tarjeta;
 use Illuminate\Database\Seeder;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
         
         $this->call(RoleSeeder::class);
         
-        User::factory(4)->create();
+        User::factory(54)->create();
+
         $this->call(TarjetaSeeder::class);
     }
 }
