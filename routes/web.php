@@ -3,6 +3,8 @@
 use App\Http\Controllers\TarjetaController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Models\Role;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,8 +37,8 @@ Route::middleware([
  */
 Route::resource('tarjetas', TarjetaController::class)->names('tarjetas');
 
-Route::resource('users', 'UsersController');
-
+/* Route::resource('users', 'UsersController');
+ */
 /* Route::get('/artisan/cache', function(){
     Artisan::call('config:cache');
     return redirect('/');

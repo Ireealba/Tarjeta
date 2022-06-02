@@ -3,11 +3,14 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Spatie\Permission\Models\Role;
 
 class Navigation extends Component
 {
     public function render()
     {
-        return view('livewire.navigation');
+        $roles = Role::all();
+        
+        return view('livewire.navigation', compact('roles'));
     }
 }

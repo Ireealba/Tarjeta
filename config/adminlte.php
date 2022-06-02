@@ -237,6 +237,22 @@ return [
             'can'         => 'manage-blog',
         ],
         [
+            'text'        => 'Mis tarjetas',
+            'route'       => 'tarjetas.index',
+            'icon'        => 'fas fa-solid fa-address-book',
+            'can'         => 'tarjetas.index'
+        ],
+        [
+            'text'         => 'Crear nueva tarjeta',
+            'route'        => 'tarjetas.create',
+            'icon'         => 'fas fa-solid fa-address-card',
+            'can'          => 'tarjetas.create'
+        ],
+        [
+            'header'      => 'ADMINISTRADOR',
+            'can'         => 'admin'
+        ],
+        [
             'text'        => 'Dashboard',
             'route'       => 'admin.home',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
@@ -246,14 +262,13 @@ return [
             'text'        => 'Usuarios',
             'route'       => 'admin.users.index',
             'icon'        => 'fas fa-users fa-fw',
-            'active'      => ['admin/users*'],
             'can'         => 'admin.users.index'
         ],
         [
             'text'        => 'Planes',
             'route'       => 'admin.roles.index',
             'icon'        => 'fas fa-users-cog fa-fw',
-            'active'      => ['admin/roles*']
+            'can'         => 'admin.roles.index'
         ],
         [
             'text'        => 'Crear nuevo usuario',
@@ -264,7 +279,8 @@ return [
         [
             'text'        => 'Crear nuevo plan',
             'route'       => 'admin.roles.create',
-            'icon'        => 'fas fa-user-cog fa-fw'
+            'icon'        => 'fas fa-user-cog fa-fw',
+            'can'         => 'admin.roles.create'
         ]               
     ],
 

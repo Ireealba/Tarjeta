@@ -66,4 +66,8 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Tarjeta');
     }
 
+    public function role(){
+        return $this->hasOne('App\Models\Role');
+    }
+
 }

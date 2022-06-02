@@ -1,14 +1,15 @@
-<x-app-layout>
+@extends('adminlte::page')
 
-    @if (session('info'))
-        <div class="alert alert-success">
-            <strong>{{session('info')}}</strong>
-        </div>
-    @endif
+@section('title', 'Tarjeta contacto')
 
+@section('content_header')
+    <h1>Tarjetas de contacto</h1>
+@stop 
+
+@section('content')
     <div class="card">
         <div class="card-body">        
-            <table> 
+            <table class="table table-striped"> 
                 <thead>
                     <th> </th>
                     <th> </th>
@@ -16,21 +17,21 @@
                     
                 </thead>               
                 <tbody>
-                    @foreach ($tarjetas as $tarjeta)
+                    @foreach ($tarjetasUsuario as $tarjeta)
                         <tr>
                             <td><b>{{$tarjeta->name_tarjeta}}</b></td>
                             
-                            <td>
-                                <a class="ver" href="{{route('tarjetas.show', $tarjeta)}}">Ver</a>
+                            <td width="10px">
+                                <a class="btn btn-primary btn-sm" href="{{route('tarjetas.show', $tarjeta)}}">Ver</a>
                             </td>
-                            <td>
-                                <a class="editar" href="{{route('tarjetas.edit', $tarjeta)}}">Editar</a>
+                            <td width="10px">
+                                <a class="btn btn-secondary btn-sm" href="{{route('tarjetas.edit', $tarjeta)}}">Editar</a>
                             </td>                           
-                            <td>
+                            <td width="10px">
                                 <form action="{{route('tarjetas.destroy', $tarjeta)}}" method="post" class="formulario-eliminar">
                                     @csrf
                                     @method('delete')                                    
-                                    <button type="submit" onclick="return confirm('Eliminar la tarjeta?')" class="eliminar">Eliminar</button>
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Eliminar la tarjeta?')" class="eliminar">Eliminar</button>
                                 </form>
                             </td>
                         </tr>
@@ -39,6 +40,23 @@
             </table>
         </div>
     </div>
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!');</script>
+@stop
+
+    @if (session('info'))
+        <div class="alert alert-success">
+            <strong>{{session('info')}}</strong>
+        </div>
+    @endif
+
+    
     
     {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -81,7 +99,7 @@
         
     </script>   --}}
     
-    <style>
+    {{-- <style>
         tr:nth-child(odd){
             background-color: rgb(218, 218, 218);
         }
@@ -149,9 +167,8 @@
             background-color: rgb(33, 114, 213);
         }
 
-    </style>
+    </style> --}}
     
-</x-app-layout>
 
 {{-- las fotos nuevas no se guardan----cambiar la ruta de privada a publica
     agregar botón de confirmación antes de eliminar registro --}}
