@@ -42,17 +42,12 @@
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 
               @if (Auth::check())
-                @foreach ($roles as $role)
-                  @if (Auth::user()->hasRole($role))
-                    @if (Auth::user()->card_number < $role->card_number)
-                      <a href="{{route('tarjetas.create')}}" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Crear nueva tarjeta</a>
-                    @else
-                      <a href="" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page" onclick="return alert('No es posible crear más tarjetas')">Crear nueva tarjeta</a>
+                  @if ($button == 0)
+                    <a href="{{route('tarjetas.create')}}" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Crear nueva tarjeta</a>
+                  @else
+                    <a href="" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page" onclick="return alert('No es posible crear más tarjetas')">Crear nueva tarjeta</a>
 
-                    @endif
                   @endif
-                @endforeach
-              
               @endif
 
               <a href="{{route('tarjetas.index')}}" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Mis tarjetas</a>

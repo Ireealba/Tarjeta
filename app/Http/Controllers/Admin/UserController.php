@@ -139,12 +139,29 @@ class UserController extends Controller
         $user->update([
             'name' => $request['name'],
             'email' => $request['email'],
-            'password' => Hash::make($request['password']),
+            'password' => Hash::make($request['password']),            
+
         ]);
 
         $user->roles()->sync($request->roles);
 
-    return redirect()->route('admin.users.edit', $user)->with('info', 'usuario actualizado con éxito'); 
+        $roles = Role::all();
+        $i = 0;
+
+        foreach ($roles as $role ) {
+
+            $i++;
+
+            if($request->roles == $role){
+                $user->role_id = $i;
+            }
+        }
+
+        
+        
+        //sincronizar un rol con un usuario
+
+        return redirect()->route('admin.users.edit', $user)->with('info', 'usuario actualizado con éxito'); 
     }
 
     /**

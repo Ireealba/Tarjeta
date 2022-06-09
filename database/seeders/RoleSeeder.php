@@ -65,10 +65,11 @@ class RoleSeeder extends Seeder
                             ->assignRole($role1, $role2, $role3, $role4);
 
         $user1 = new User;
-        $user1->name = 'Irene Alba Posadas';
+        $user1->name = 'Irene';
         $user1->email = 'irene@gmail.com';
         $user1->password = bcrypt('irene2312');
         $user1->card_number = 0;
+        $user1->role_id = 1;
         $user1->save();
         $user1->assignRole($role1);
 
@@ -77,6 +78,7 @@ class RoleSeeder extends Seeder
         $user2->email = 'mc@gmail.com';
         $user2->password = bcrypt('maricarmen');
         $user2->card_number = 0;
+        $user2->role_id = 2;
         $user2->save();
         $user2->assignRole($role2);
         

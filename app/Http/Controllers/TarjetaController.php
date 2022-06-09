@@ -15,8 +15,7 @@ class TarjetaController extends Controller
     public function index(){
         $tarjetas = Tarjeta::all();
         $i = 0;
-        $role = 
-
+        
         $tarjetasUsuario = array();
              
             foreach ($tarjetas as $tarjeta ) {
@@ -40,7 +39,8 @@ class TarjetaController extends Controller
         return view('tarjetas.create', compact('id'));
     }
 
-    public function store(Request $request, Tarjeta $tarjeta){       
+    public function store(Request $request, Tarjeta $tarjeta, User $user){       
+        
         
         $tarjeta = Tarjeta::create($request->all());
         
@@ -51,8 +51,7 @@ class TarjetaController extends Controller
                 'url'=> $url
             ]);
         } */
-        $user = Auth::user();
-        $user->card_number+=1;
+        
 
         if($request->file('file')){
             $url = Storage::put('imgtarjetas', $request->file('file'));
@@ -110,5 +109,6 @@ class TarjetaController extends Controller
         return redirect()->route('tarjetas.index')->with('eliminar', 'ok');
     }
 
+    
 }
 
