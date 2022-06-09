@@ -40,15 +40,13 @@
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-
-              @if (Auth::check())
+              
                   @if ($button == 0)
                     <a href="{{route('tarjetas.create')}}" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Crear nueva tarjeta</a>
                   @else
                     <a href="" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page" onclick="return alert('No es posible crear más tarjetas')">Crear nueva tarjeta</a>
 
-                  @endif
-              @endif
+                  @endif              
 
               <a href="{{route('tarjetas.index')}}" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Mis tarjetas</a>
 

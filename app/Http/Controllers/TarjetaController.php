@@ -50,8 +50,7 @@ class TarjetaController extends Controller
             $tarjeta->image()->create([
                 'url'=> $url
             ]);
-        } */
-        
+        } */        
 
         if($request->file('file')){
             $url = Storage::put('imgtarjetas', $request->file('file'));
@@ -59,6 +58,16 @@ class TarjetaController extends Controller
                 'url' => $url
             ]);
         }
+
+        $roles = Role::all();
+
+        foreach ($roles as $role ) {
+            if (Auth::user()->hasRole($role)) {
+                $cards = $role->card_number;
+            }
+        }
+
+        Auth::user()->card_number = Tarjeta::count('user_id');
 
         return redirect()->route('tarjetas.edit', $tarjeta)->with('info', 'Los datos se crearon con éxito.');
     }

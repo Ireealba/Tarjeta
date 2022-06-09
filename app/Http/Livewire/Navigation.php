@@ -11,7 +11,6 @@ class Navigation extends Component
 {
     public function render()
     {
-        $tarjetas = Tarjeta::count('user_id');        
 
         $roles = Role::all();
 
@@ -20,6 +19,8 @@ class Navigation extends Component
                 $cards = $role->card_number;
             }
         }
+        
+        $tarjetas = Tarjeta::count('user_id');                
 
         if ($tarjetas < $cards) {
             $button = 0;
