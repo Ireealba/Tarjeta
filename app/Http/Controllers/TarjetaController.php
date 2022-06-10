@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
 
+
 class TarjetaController extends Controller
 {
     public function index(){
@@ -64,10 +65,16 @@ class TarjetaController extends Controller
         foreach ($roles as $role ) {
             if (Auth::user()->hasRole($role)) {
                 $cards = $role->card_number;
+                $user_role = $role;
             }
         }
+        
+        $tarjetas = Tarjeta::count('user_id');                
 
-        Auth::user()->card_number = Tarjeta::count('user_id');
+        if ($cards <= $tarjetas) {
+            Auth::user()->assignRole([$user_role, 'TarjetasLimite']);
+        }
+        
 
         return redirect()->route('tarjetas.edit', $tarjeta)->with('info', 'Los datos se crearon con éxito.');
     }
