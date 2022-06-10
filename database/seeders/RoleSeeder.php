@@ -90,13 +90,7 @@ class RoleSeeder extends Seeder
         $user1->save();
         $user1->assignRole($role1);
 
-        $user2 = new User;
-        $user2->name = 'Mari Carmen';
-        $user2->email = 'mc@gmail.com';
-        $user2->password = bcrypt('maricarmen');
-        $user2->role_id = 2;
-        $user2->save();
-        $user2->assignRole($role2);
+        
         
     }
 }

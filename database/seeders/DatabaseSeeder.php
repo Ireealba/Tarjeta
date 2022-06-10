@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
         
         $this->call(RoleSeeder::class);
         
-        User::factory(54)->create();
 
         $this->call(TarjetaSeeder::class);
     }
