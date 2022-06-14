@@ -242,12 +242,12 @@ return [
             'icon'        => 'fas fa-solid fa-address-book',
             'can'         => 'tarjetas.index'
         ],
-        [
+        /* [
             'text'         => 'Crear nueva tarjeta',
             'route'        => 'tarjetas.create',
             'icon'         => 'fas fa-solid fa-address-card',
             'can'          => 'tarjetas.create'
-        ],
+        ], */
         [
             'header'      => 'ADMINISTRADOR',
             'can'         => 'admin'

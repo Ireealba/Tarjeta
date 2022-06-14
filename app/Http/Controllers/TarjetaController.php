@@ -34,10 +34,32 @@ class TarjetaController extends Controller
     public function create(){     
         
             if(Auth::check()){
+                
                 $id = Auth::user()->id;
+
+                $user = User::find(auth()->user()->id);
+
+                $roles = Role::all();
+
+                foreach ($roles as $role ) {
+                    if ($user->hasRole($role)) {
+                        $user_role = $role;
+                    }
+                }
+
+                if ($user->card_number < $user_role) {
+                    return view('tarjetas.create', compact('id'));
+                }else{
+                    return redirect(route('tarjetas.index', $id))->with('info', 'El límite de tarjetas ha sido alcanzado.');
+                }
+                
+
+            }
+            else{
+                return view('tarjetas.create', compact('id'));
             }
 
-        return view('tarjetas.create', compact('id'));
+                 
     }
 
     public function store(Request $request, Tarjeta $tarjeta, User $user){       
@@ -60,20 +82,9 @@ class TarjetaController extends Controller
             ]);
         }
 
-        $roles = Role::all();
-
-        foreach ($roles as $role ) {
-            if (Auth::user()->hasRole($role)) {
-                $cards = $role->card_number;
-                $user_role = $role;
-            }
-        }
-        
-        $tarjetas = Tarjeta::count('user_id');                
-
-        if ($cards <= $tarjetas) {
-            Auth::user()->assignRole([$user_role, 'TarjetasLimite']);
-        }
+        $user = User::find(auth()->user()->id);
+        $user->card_number = auth()->user()->card_number + 1;
+        $user->save();
         
 
         return redirect()->route('tarjetas.edit', $tarjeta)->with('info', 'Los datos se crearon con éxito.');
@@ -119,6 +130,24 @@ class TarjetaController extends Controller
     }
 
     public function destroy(Tarjeta $tarjeta){
+
+        /* $roles = Role::all();
+
+        foreach ($roles as $role) {
+            if ($role != 'TarjetasLimite') {
+                if(Auth::user()->hasRole($role)){
+                    $user_role = $role;
+               }
+            }
+        } */
+
+        /* Auth::user()->removeRole('TarjetasLimite'); */
+        /* Auth::user()->assignRole($role); */
+
+        $user = User::find(auth()->user()->id);
+
+        $user->card_number = auth()->user()->card_number - 1;
+        $user->save();
 
         $tarjeta->delete();
 

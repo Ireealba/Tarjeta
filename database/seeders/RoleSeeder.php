@@ -20,7 +20,6 @@ class RoleSeeder extends Seeder
         $role2 = Role::create(['name' => 'FreeUser', 'id' => '2', 'card_number' => '3']);
         $role3 = Role::create(['name' => 'StandardUser', 'id' => '3', 'card_number' => '6']);
         $role4 = Role::create(['name' => 'PremiumUser', 'id' => '4', 'card_number' => '10']);
-        $role5 = Role::create(['name' => 'TarjetasLimite', 'id' => '5', 'card_number' => '0']);
 
         Permission::create(['name' => 'admin.home',
                             'description' => 'Ver el dashboard'])
@@ -68,7 +67,7 @@ class RoleSeeder extends Seeder
 
         Permission::create(['name' => 'tarjetas.index',
                             'description' => 'Ver sus tarjetas'])
-                            ->assignRole($role1, $role2, $role3, $role4, $role5);
+                            ->assignRole($role1, $role2, $role3, $role4);
 
         Permission::create(['name' => 'tarjetas.create',
                             'description' => 'Crear nueva tarjeta'])
@@ -76,11 +75,11 @@ class RoleSeeder extends Seeder
 
         Permission::create(['name' => 'tarjetas.edit',
                             'description' => 'Editar sus tarjetas'])
-                            ->assignRole($role1, $role2, $role3, $role4, $role5);
+                            ->assignRole($role1, $role2, $role3, $role4);
 
         Permission::create(['name' => 'tarjetas.destroy',
                             'description' => 'Eliminar sus tarjetas'])
-                            ->assignRole($role1, $role2, $role3, $role4, $role5);
+                            ->assignRole($role1, $role2, $role3, $role4);
 
         $user1 = new User;
         $user1->name = 'Irene';
