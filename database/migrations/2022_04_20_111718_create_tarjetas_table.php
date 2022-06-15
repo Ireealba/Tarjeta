@@ -39,6 +39,8 @@ class CreateTarjetasTable extends Migration
             $table->string('website2')->nullable();
             $table->string('website3')->nullable();
 
+            $table->string('url')->nullable();
+
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 

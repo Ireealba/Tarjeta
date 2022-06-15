@@ -36,6 +36,7 @@ Route::middleware([
 /* Route::get('/home/{tarjeta}', [TarjetaController::class, 'show'])->name('tarjetas.show');
  */
 Route::resource('tarjetas', TarjetaController::class)->names('tarjetas');
+Route::get('/qr_generate{tarjeta}', [TarjetaController::class, 'qr_generate'])->name('tarjetas.qr_generate');
 
 /* Route::resource('users', 'UsersController');
  */

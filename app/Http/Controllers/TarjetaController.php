@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Spatie\Permission\Models\Role;
 
 
@@ -82,6 +83,9 @@ class TarjetaController extends Controller
             ]);
         }
 
+        $tarjeta->url = "https://gallant-hamilton.185-209-60-239.plesk.page/tarjetas/".$tarjeta->id;
+        $tarjeta->save();
+
         $user = User::find(auth()->user()->id);
         $user->card_number = auth()->user()->card_number + 1;
         $user->save();
@@ -152,6 +156,11 @@ class TarjetaController extends Controller
         $tarjeta->delete();
 
         return redirect()->route('tarjetas.index')->with('eliminar', 'ok');
+    }
+
+    public function qr_generate(Tarjeta $tarjeta){
+        return QrCode::size(500)->generate($tarjeta->url);
+
     }
 
     
