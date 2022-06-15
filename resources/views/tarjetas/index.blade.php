@@ -25,8 +25,8 @@
                             <td width="10px">
                                 <a class="ver" href="{{route('tarjetas.show', $tarjeta)}}">Ver</a>
                             </td>                            
-                            <td>
-                                <a class="verqr" href="{{route('tarjetas.qr_generate', $tarjeta)}}">Generar código QR</a>
+                            <td width="10px">
+                                <a class="verqr" href="{{route('tarjetas.qr_generate', $tarjeta)}}">QR</a>
                             </td>
                             <td width="10px">
                                 <a class="editar" href="{{route('tarjetas.edit', $tarjeta)}}">Editar</a>
