@@ -23,10 +23,10 @@
                             <td><b>{{$tarjeta->name_tarjeta}}</b></td>
                             
                             <td width="10px">
-                                <a class="ver" href="{{route('tarjetas.show', $tarjeta)}}">Ver</a>
+                                <a class="ver" href="{{route('tarjetas.show', $tarjeta)}} " target="_blank">Ver</a>
                             </td>                            
                             <td width="10px">
-                                <a class="verqr" href="{{route('tarjetas.qr_generate', $tarjeta)}}">QR</a>
+                                <a class="verqr" href="{{route('tarjetas.qr_generate', $tarjeta)}}" target="_blank">QR</a>
                             </td>
                             <td width="10px">
                                 <a class="editar" href="{{route('tarjetas.edit', $tarjeta)}}">Editar</a>
