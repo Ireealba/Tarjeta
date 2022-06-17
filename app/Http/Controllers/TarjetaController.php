@@ -159,7 +159,7 @@ class TarjetaController extends Controller
     }
 
     public function qr_generate(Tarjeta $tarjeta){
-        return QrCode::size(500)->generate($tarjeta->url);
+        return QrCode::size(300)->generate($tarjeta->url);
 
     }
 
